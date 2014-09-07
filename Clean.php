@@ -27,20 +27,21 @@
  *   
  * @author     Ľuboš Beran
  * @copyright  (c) 2012-2014 Detroit Studio s.r.o.
- * @web        http://www.detroit.sk 
+ * @web        http://www.detroit.sk
+ * @version    1.2
  */
 
 class Clean
 {
 
   /** 
-   * Function to escape all possible XSS attacs from string.
+   * Function to escape all possible XSS attacks from string.
    *    
    * @param string $data String to escape
-   * @param bool $addslashes If we want to add "addslashes"
+   * @param bool $addslashes If we want to use "addslashes"
    * @return string $data Clean string
    */
-  public static function xss_clean_input($data,$addslashes = false)
+  public static function cleanInput($data,$addslashes = false)
   {
     // Fix &entity\n;
     $data = str_replace(array('&amp;','&lt;','&gt;'), array('&amp;amp;','&amp;lt;','&amp;gt;'), $data);
@@ -79,12 +80,12 @@ class Clean
   }
 
   /**
-   * Function to clean one-dimensional array of posted data. 
-   * Usage: Clean::cleanArray($_POST); (for example)    
-   *        
-   * @param array $data Data to clean
-     @param bool $addslashes Add slashes to strings
-   * @return array $data Returned clean array
+   * Function to clean multi-dimensional array of posted data.
+   * Usage: Clean::cleanArray($_POST); (for example)
+   *
+   * @param array $data Array to escape
+   * @param bool $addslashes Set true, if you can use addslashes function - extended security
+   * @return array
    */
   public static function cleanArray($data = array(),$addslashes = false)
   {
@@ -92,7 +93,7 @@ class Clean
       if(is_array($value)){
           self::cleanArray($data);
       }else{
-        $data[$key] = self::xss_clean_input($value,$addslashes);
+        $data[$key] = self::cleanInput($value,$addslashes);
       }
     }
     return $data;
@@ -102,9 +103,9 @@ class Clean
    * Function to remove HTML TAGS from array of values.
    * 
    * @param array $array Array of values to escape      
-   * @return array $array Clean arraty of values
+   * @return array $array Clean array of values
    */        
-  public static function removeTags($array = array())
+  public static function removeHTMLTags($array = array())
   {
     foreach($array as $key => $node)
     {
