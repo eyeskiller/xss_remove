@@ -98,19 +98,4 @@ class Clean
     }
     return $data;
   }
-
-  /**
-   * Function to remove HTML TAGS from array of values.
-   * 
-   * @param array $array Array of values to escape      
-   * @return array $array Clean array of values
-   */        
-  public static function removeHTMLTags($array = array())
-  {
-    foreach($array as $key => $node)
-    {
-      $array[$key] = strip_tags($node);
-    }
-    return $array;
-  }
 }
