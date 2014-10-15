@@ -29,14 +29,16 @@ Dev info
 All methods are static, so you don't need to create new Instance of the class.
 Simply use as it is. It is secure.
 
-Function ```cleanInput($data, $addslashes)``` have two parameters
+Function ```cleanInput($data, $addSlashes)``` have two parameters
 
 ```$data```  - Posted data to clean, in this case one string
-```$addslashes``` - If you want to use addslashes, for better security, set this as ```TRUE```, default is ```FALSE```
 
-Function ```cleanArray($data, $addslashes)``` have two parameters
+```$addSlashes``` - If you want to use addslashes, for better security, set this as ```TRUE```, default is ```FALSE```
+
+Function ```cleanArray($data, $addSlashes)``` have two parameters
 
 ```$data```  - Posted data to clean, in this case multi-dimensional array
-```$addslashes``` - If you want to use addslashes, for better security, set this as ```TRUE```, default is ```FALSE```
+
+```$addSlashes``` - If you want to use addslashes, for better security, set this as ```TRUE```, default is ```FALSE```
 
 
