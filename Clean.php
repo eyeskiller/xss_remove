@@ -89,12 +89,10 @@ class Clean
    */
   public static function cleanArray($data = array(),$addslashes = false)
   {
-    foreach($data as $key => $value){
-      if(is_array($value)){
-          self::cleanArray($data);
-      }else{
-        $data[$key] = self::cleanInput($value,$addslashes);
-      }
+    $iterator = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($data));
+    //clean array
+    foreach($iterator as $key => $value){
+      $data[$key] = self::cleanInput($value,$addslashes);
     }
     return $data;
   }
