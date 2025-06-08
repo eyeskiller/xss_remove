@@ -1,0 +1,18 @@
+{
+    "name": "eyeskiller/xss-remove",
+    "description": "A library for removing XSS and SQLi from strings in PHP",
+    "type": "library",
+    "require": {
+        "php": ">=8.0"
+    },
+    "suggest": {
+        "ezyang/htmlpurifier": "For enhanced HTML sanitization"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eyeskiller\\XssRemove\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "version": "3.0.0"
+}
